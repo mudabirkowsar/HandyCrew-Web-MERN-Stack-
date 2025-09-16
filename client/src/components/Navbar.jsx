@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Use Link for SPA navigation
+import { Link } from "react-router-dom"; 
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -18,8 +18,12 @@ export default function Navbar() {
 
             {/* Buttons */}
             <div className="navbar-buttons">
-                <Link to="/login"><button className="btn login">Login</button></Link>
-                <Link to="/signup"><button className="btn signup">Sign Up</button></Link>
+                <Link to="/login">
+                    <button className="btn login">Login</button>
+                </Link>
+                <Link to="/provider">
+                    <button className="btn provider">Become a Provider</button>
+                </Link>
             </div>
         </nav>
     );

@@ -29,7 +29,7 @@
   list-style: none;
   display: flex;
   gap: 30px;
-  flex-wrap: wrap; /* Prevent overflow */
+  flex-wrap: wrap;
 }
 
 .navbar-links li a {
@@ -48,7 +48,7 @@
 .navbar-buttons {
   display: flex;
   gap: 15px;
-  flex-shrink: 0; /* Prevent buttons from squishing */
+  flex-shrink: 0;
 }
 
 .btn {
@@ -56,14 +56,16 @@
   border-radius: 6px;
   font-size: 15px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   font-weight: 500;
-  white-space: nowrap; /* Prevent text breaking */
+  white-space: nowrap;
+  border: none;
 }
 
+/* Login / Signup Button */
 .btn.login {
-  border: 1px solid #555;
   background: transparent;
+  border: 1px solid #555;
   color: #333;
 }
 
@@ -71,14 +73,18 @@
   background: #f2f2f2;
 }
 
-.btn.signup {
-  border: none;
+/* Become Provider CTA */
+.btn.provider {
   background: #1a73e8;
-  color: white;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgba(26, 115, 232, 0.3);
 }
 
-.btn.signup:hover {
+.btn.provider:hover {
   background: #1666cc;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(26, 115, 232, 0.4);
 }
 
 /* Responsive Fix */
