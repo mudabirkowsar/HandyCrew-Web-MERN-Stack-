@@ -14,7 +14,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 0; /* only top-bottom padding */
+  padding: 100px 0;
+  /* only top-bottom padding */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -23,9 +24,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;      /* Full width */
+  width: 100%;
   gap: 50px;
-  padding: 0 40px;  /* add inside spacing instead */
+  padding: 0 40px;
   box-sizing: border-box;
 }
 
@@ -61,7 +62,7 @@
 }
 
 .btn {
-  padding: 14px 28px;
+  padding: 20px 35px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
@@ -118,6 +119,7 @@
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -129,6 +131,7 @@
     opacity: 0;
     transform: translateX(50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);

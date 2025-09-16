@@ -31,7 +31,7 @@ function Login() {
           </div>
 
           <div className="login-options">
-            <Link to="/forgot-password" className="forgot-password">
+            <Link to="" className="forgot-password">
               Forgot Password?
             </Link>
           </div>
