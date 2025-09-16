@@ -6,6 +6,8 @@ import ServicePage from '../pages/servicePage/ServicePage';
 import AboutPage from '../pages/aboutPage/AboutPage';
 import ContactPage from '../pages/contactPage/ContactPage';
 import HomeScreenMain from '../pages/homePage/HomeScreenMain';
+import Login from '../pages/loginSignup/Login';
+import Signup from '../pages/loginSignup/Signup';
 
 function Navigation() {
     return (
@@ -17,6 +19,8 @@ function Navigation() {
                     <Route path="services" element={<ServicePage/>} />
                     <Route path="about" element={<AboutPage/>} />
                     <Route path="contact" element={<ContactPage/>} />
+                    <Route path="login" element={<Login/>} />
+                    <Route path="signup" element={<Signup/>} />
                 </Route>
             </Routes>
         </BrowserRouter>
