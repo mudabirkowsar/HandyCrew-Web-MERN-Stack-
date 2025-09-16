@@ -1,0 +1,151 @@
+.footer {
+  background-color: #111;
+  color: #fff;
+  padding: 60px 20px 30px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-about {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #f5a623;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #f5a623;
+}
+
+.footer-socials {
+  margin-top: 10px;
+}
+
+.footer-socials a {
+  display: inline-block;
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+
+.footer-socials a:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 15px 0 0 0;
+  font-size: 0.85rem;
+  border-top: 1px solid #333;
+  margin-top: 30px;
+  color: #aaa;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .footer-container {
+    gap: 20px;
+  }
+
+  .footer-logo {
+    font-size: 1.6rem;
+  }
+
+  .footer-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-about,
+  .footer-links a {
+    font-size: 0.88rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .footer-section {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .footer-logo {
+    font-size: 1.5rem;
+  }
+
+  .footer-section h3 {
+    font-size: 1rem;
+  }
+
+  .footer-about,
+  .footer-links a {
+    font-size: 0.85rem;
+  }
+
+  .footer-socials a {
+    margin: 0 8px;
+  }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 40px 15px 20px 15px;
+  }
+
+  .footer-logo {
+    font-size: 1.3rem;
+  }
+
+  .footer-section h3 {
+    font-size: 0.95rem;
+  }
+
+  .footer-about,
+  .footer-links a {
+    font-size: 0.8rem;
+  }
+}

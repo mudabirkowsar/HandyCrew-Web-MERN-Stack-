@@ -1,0 +1,98 @@
+[
+  {
+    "id": 3000,
+    "name": "Plumbing Services",
+    "type":"Plumber",
+    "category": "Home Services",
+    "description": "Expert plumbing solutions for leaks, clogs, and installations.",
+    "icon": "ios-water",
+    "priceRange": "$25 - $200",
+    "rating": 4.6,
+    "estimatedTime": "30 mins - 3 hrs",
+    "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3001,
+    "name": "Electrical Services",
+    "type":"Electrician",
+    "category": "Home Services",
+    "description": "Professional electrical repairs, wiring, and installations.",
+    "icon": "ios-flash",
+    "priceRange": "$35 - $250",
+    "rating": 4.8,
+    "estimatedTime": "1 hr - 5 hrs",
+    "image": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3002,
+    "name": "Mechanical Repairs",
+    "type":"Mechanical",
+    "category": "Automotive & Machinery",
+    "description": "Expert mechanical repairs for appliances and machinery.",
+    "icon": "ios-build",
+    "priceRange": "$40 - $300",
+    "rating": 4.7,
+    "estimatedTime": "1 hr - 6 hrs",
+    "image": "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3003,
+    "name": "AC and Cooling Services",
+    "type":"AC and Cooling",
+    "category": "Home Services",
+    "description": "AC installation, repair, and maintenance services.",
+    "icon": "ios-snow",
+    "priceRange": "$30 - $300",
+    "rating": 4.7,
+    "estimatedTime": "1 hr - 4 hrs",
+    "image": "https://images.unsplash.com/photo-1581822261290-991b38693d1b?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3004,
+    "name": "Carpentry Services",
+    "type":"Carpentry",
+    "category": "Home Services",
+    "description": "Custom furniture, repairs, and woodworking solutions.",
+    "icon": "ios-hammer",
+    "priceRange": "$28 - $180",
+    "rating": 4.5,
+    "estimatedTime": "2 hrs - 6 hrs",
+    "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3005,
+    "name": "Cleaning Services",
+    "type":"Cleaning",
+    "category": "Home Services",
+    "description": "Professional deep cleaning and sanitization services.",
+    "icon": "ios-trash",
+    "priceRange": "$20 - $150",
+    "rating": 4.4,
+    "estimatedTime": "1 hr - 4 hrs",
+    "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3006,
+    "name": "Painting Services",
+    "type":"Painter",
+    "category": "Home Services",
+    "description": "Interior and exterior painting for homes and offices.",
+    "icon": "ios-brush",
+    "priceRange": "$50 - $500",
+    "rating": 4.7,
+    "estimatedTime": "3 hrs - 2 days",
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3007,
+    "name": "Beautician Services",
+    "type":"Beautician",
+    "category": "Personal Care",
+    "description": "Professional beauty treatments at your doorstep.",
+    "icon": "ios-cut",
+    "priceRange": "$15 - $100",
+    "rating": 4.8,
+    "estimatedTime": "45 mins - 3 hrs",
+    "image": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=300&fit=crop"
+  }
+]
