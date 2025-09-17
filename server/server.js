@@ -16,11 +16,16 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((err) => {
     console.log("Error in connection", err);
     process.exit(1);
-} )
+})
 
 app.get("/", (req, res) => {
     res.send("Running huhu")
 })
+
+const authRoutes = require("./routes/authRoutes");
+
+
+app.use("/api/auth", authRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log("Running on port 5000")
