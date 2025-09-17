@@ -1,9 +1,38 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
+import { loginUser } from "../../api/api";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigation = useNavigate()
+
+  // Collect all form data in one state object
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  // Handle input changes dynamically
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await loginUser(formData);
+      localStorage.setItem("token", data.token);
+      alert("Login Successful ✅");
+      navigate("/")
+    } catch (error) {
+      alert("Login Failed ❌");
+    }
+  };
 
   return (
     <div className="login-page">
@@ -11,12 +40,22 @@ function Login() {
         <h2 className="login-title">Welcome Back</h2>
         <p className="login-subtitle">Login to continue using HandyCrew</p>
 
-        <form className="login-form">
-          <input type="email" placeholder="Email Address" required />
+        <form className="login-form" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Email Address"
+            required
+          />
 
           <div className="password-field">
             <input
               type={showPassword ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               placeholder="Password"
               required
             />

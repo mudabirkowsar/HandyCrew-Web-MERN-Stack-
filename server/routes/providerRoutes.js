@@ -11,7 +11,7 @@ router.post("/", protect, async (req, res) => {
             ...req.body,
         });
 
-        await Provider.save();
+        await provider.save();
         res.status(201).json({
             message: "Regestered Successfully",
             provider,

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
+import { registerUser } from "../../api/api";
 
 function Signup() {
+  const navigation = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,7 +17,7 @@ function Signup() {
   const [errors, setErrors] = useState({});
 
   // Handle input changes
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -44,11 +46,16 @@ function Signup() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      alert("Signup Successful ✅");
-      // You can add API call here
+      try {
+        await registerUser(formData);
+        localStorage.setItem("token", data.token);
+        alert("Registration Successful ✅");
+      } catch (error) {
+        alert("Registration Failed ❌");
+      }
     }
   };
 
@@ -115,9 +122,8 @@ function Signup() {
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
             >
               <i
-                className={`fas ${
-                  showConfirmPassword ? "fa-eye-slash" : "fa-eye"
-                }`}
+                className={`fas ${showConfirmPassword ? "fa-eye-slash" : "fa-eye"
+                  }`}
               ></i>
             </span>
           </div>

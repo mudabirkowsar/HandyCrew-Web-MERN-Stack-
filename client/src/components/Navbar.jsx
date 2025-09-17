@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+
+  const [token, setToken] = useState();
+
+  useEffect(()=> {
+    const token = localStorage.getItem("token" || null)
+    setToken(token);
+  }, token)
+
+  const handleLogout = () => {
+    localStorage.clear();
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,12 +34,23 @@ export default function Navbar() {
         <li><Link to="/contact">Contact</Link></li>
       </ul>
       <div className="navbar-buttons">
-        <Link to="/login">
-          <button className="btn login">Login</button>
-        </Link>
         <Link to="/provider">
           <button className="btn provider">Become a Provider</button>
         </Link>
+
+        {
+          token ?
+            <Link to="/"
+            onClick={handleLogout}
+            >
+              <button className="btn login">Logout</button>
+            </Link> :
+            <Link to="/login">
+              <button className="btn login">Login</button>
+            </Link>
+        }
+
+
       </div>
     </nav>
   );
