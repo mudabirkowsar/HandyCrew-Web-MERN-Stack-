@@ -1,3 +1,7 @@
+*{
+  text-decoration: none;
+}
+
 .services-page {
   padding: 80px 20px;
   max-width: 1200px;

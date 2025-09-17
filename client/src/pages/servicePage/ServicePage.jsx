@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ServicePage.css";
-import servicesData from "../../../fullData/services.json"; 
+import servicesData from "../../../fullData/services.json";
+import { Link } from "react-router-dom";
 
 function ServicePage() {
   const [search, setSearch] = useState("");
@@ -32,25 +33,29 @@ function ServicePage() {
       <div className="services-grid">
         {filteredServices.length > 0 ? (
           filteredServices.map((service) => (
-            <div className="service-card" key={service.id}>
-              <div className="service-image-wrapper">
-                <img
-                  src={service.image}
-                  alt={service.name}
-                  className="service-image"
-                />
-              </div>
-              <div className="service-content">
-                <h3 className="service-name">{service.name}</h3>
-                <p className="service-category">{service.category}</p>
-                <p className="service-description">{service.description}</p>
-                <div className="service-meta">
-                  <span className="service-price">{service.priceRange}</span>
-                  <span className="service-rating">⭐ {service.rating}</span>
+            <Link
+              to={`/service/${service.id}`} key={service.id}
+            >
+              <div className="service-card" key={service.id}>
+                <div className="service-image-wrapper">
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="service-image"
+                  />
                 </div>
-                <p className="service-time">{service.estimatedTime}</p>
+                <div className="service-content">
+                  <h3 className="service-name">{service.name}</h3>
+                  <p className="service-category">{service.category}</p>
+                  <p className="service-description">{service.description}</p>
+                  <div className="service-meta">
+                    <span className="service-price">{service.priceRange}</span>
+                    <span className="service-rating">⭐ {service.rating}</span>
+                  </div>
+                  <p className="service-time">{service.estimatedTime}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))
         ) : (
           <p className="no-results">No services found matching your search.</p>

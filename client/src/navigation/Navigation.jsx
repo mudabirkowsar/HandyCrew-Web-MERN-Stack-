@@ -8,6 +8,7 @@ import ContactPage from '../pages/contactPage/ContactPage';
 import HomeScreenMain from '../pages/homePage/HomeScreenMain';
 import Login from '../pages/loginSignup/Login';
 import Signup from '../pages/loginSignup/Signup';
+import ServiceDetailPage from '../pages/servicePage/ServiceDetailPage';
 
 function Navigation() {
     return (
@@ -21,6 +22,8 @@ function Navigation() {
                     <Route path="contact" element={<ContactPage/>} />
                     <Route path="login" element={<Login/>} />
                     <Route path="signup" element={<Signup/>} />
+
+                    <Route path="service/:id" element={<ServiceDetailPage/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

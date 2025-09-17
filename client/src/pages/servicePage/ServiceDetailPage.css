@@ -1,0 +1,178 @@
+/* General page layout */
+.service-detail-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #4a6cf7;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.back-link:hover {
+  color: #1e40af;
+}
+
+/* Service detail card */
+.detail-card {
+  display: flex;
+  gap: 20px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+}
+
+.detail-image-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.detail-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.detail-content {
+  flex: 2;
+}
+.detail-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #111827;
+}
+.detail-category,
+.detail-type,
+.detail-description,
+.detail-time {
+  margin: 6px 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.detail-meta {
+  margin-top: 12px;
+  display: flex;
+  gap: 15px;
+  font-weight: 600;
+}
+.detail-price {
+  color: #16a34a;
+}
+.detail-rating {
+  color: #f59e0b;
+}
+
+/* Providers section */
+.providers-section {
+  margin-top: 30px;
+}
+.providers-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.providers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.provider-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.provider-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.provider-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 3px solid #e5e7eb;
+}
+
+.provider-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.verified-badge {
+  font-size: 14px;
+  color: #22c55e;
+}
+
+.provider-rating {
+  color: #f59e0b;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.provider-location {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.provider-price {
+  font-weight: 600;
+  color: #16a34a;
+  margin-bottom: 12px;
+}
+
+/* Book button */
+.provider-book-btn {
+  background: #4a6cf7;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+.provider-book-btn:hover {
+  background: #1e40af;
+}
+
+/* Empty state */
+.no-providers {
+  font-size: 16px;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .detail-card {
+    flex-direction: column;
+    align-items: center;
+  }
+  .detail-image {
+    max-width: 100%;
+  }
+  .detail-content {
+    text-align: center;
+  }
+}
