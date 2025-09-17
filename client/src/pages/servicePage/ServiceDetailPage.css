@@ -1,35 +1,47 @@
-/* General page layout */
+/* ========================= */
+/* Page Layout               */
+/* ========================= */
 .service-detail-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 30px 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px 20px;
+  font-family: "Inter", "Segoe UI", sans-serif;
   color: #333;
+  padding-top: 100px;
+  background: linear-gradient(135deg, #f9fafb, #eef2ff);
+  min-height: 100vh;
 }
 
 /* Back link */
 .back-link {
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   text-decoration: none;
-  color: #4a6cf7;
-  font-weight: 500;
-  transition: color 0.2s ease;
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.25s ease;
 }
-
 .back-link:hover {
   color: #1e40af;
+  text-decoration: underline;
 }
 
-/* Service detail card */
+/* ========================= */
+/* Service Detail Card       */
+/* ========================= */
 .detail-card {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  margin-bottom: 40px;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.08);
+  margin-bottom: 45px;
+  transition: transform 0.3s ease;
+}
+.detail-card:hover {
+  transform: translateY(-5px);
 }
 
 .detail-image-wrapper {
@@ -38,135 +50,147 @@
   align-items: center;
   justify-content: center;
 }
-
 .detail-image {
   width: 100%;
   max-width: 400px;
-  border-radius: 12px;
+  border-radius: 14px;
   object-fit: cover;
+  border: 4px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .detail-content {
   flex: 2;
 }
-
 .detail-title {
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 30px;
+  margin-bottom: 12px;
+  font-weight: 700;
   color: #111827;
 }
-
 .detail-category,
 .detail-type,
 .detail-description,
 .detail-time {
   margin: 6px 0;
   color: #555;
-  line-height: 1.5;
+  line-height: 1.6;
 }
-
 .detail-meta {
-  margin-top: 12px;
+  margin-top: 15px;
   display: flex;
-  gap: 15px;
+  gap: 18px;
   font-weight: 600;
   flex-wrap: wrap;
 }
-
 .detail-price {
   color: #16a34a;
+  font-size: 18px;
 }
-
 .detail-rating {
   color: #f59e0b;
+  font-size: 18px;
 }
 
-/* Providers section */
+/* ========================= */
+/* Providers Section         */
+/* ========================= */
 .providers-section {
-  margin-top: 30px;
+  margin-top: 35px;
 }
-
 .providers-section h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #111827;
+  font-size: 26px;
+  margin-bottom: 22px;
+  color: #1e3a8a;
+  font-weight: 700;
+  border-left: 4px solid #2563eb;
+  padding-left: 10px;
 }
 
 .providers-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  gap: 22px;
 }
 
 .provider-card {
   background: #fff;
-  border-radius: 14px;
-  padding: 18px;
+  border-radius: 16px;
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid #f3f4f6;
 }
-
 .provider-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
 }
 
 .provider-image {
-  width: 90px;
-  height: 90px;
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 12px;
-  border: 3px solid #e5e7eb;
+  margin-bottom: 14px;
+  border: 3px solid #2563eb20;
+  transition: all 0.3s ease;
+}
+.provider-card:hover .provider-image {
+  border-color: #2563eb;
 }
 
 .provider-name {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 700;
   margin-bottom: 6px;
+  color: #111827;
 }
-
 .verified-badge {
-  font-size: 14px;
+  font-size: 13px;
   color: #22c55e;
+  margin-left: 5px;
 }
 
 .provider-rating {
   color: #f59e0b;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 6px;
 }
-
 .provider-location {
   font-size: 14px;
   color: #6b7280;
   margin-bottom: 6px;
 }
-
 .provider-price {
-  font-weight: 600;
+  font-weight: 700;
   color: #16a34a;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
-/* Book button */
+/* ========================= */
+/* Book Button               */
+/* ========================= */
 .provider-book-btn {
-  background: #4a6cf7;
+  background: linear-gradient(90deg, #2563eb, #1e40af);
   color: #fff;
   border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 12px 20px;
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s ease;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
-
 .provider-book-btn:hover {
-  background: #1e40af;
+  background: linear-gradient(90deg, #1e40af, #2563eb);
+  transform: scale(1.05);
 }
 
-/* Empty state */
+/* ========================= */
+/* Empty State               */
+/* ========================= */
 .no-providers {
   font-size: 16px;
   color: #6b7280;
@@ -175,25 +199,22 @@
 }
 
 /* ========================= */
-/* Responsive breakpoints    */
+/* Responsive                */
 /* ========================= */
 
-/* Tablets (portrait & landscape) */
+/* Tablets */
 @media (max-width: 1024px) {
   .detail-card {
     flex-direction: column;
     text-align: center;
-    padding: 16px;
+    padding: 20px;
   }
-
   .detail-image {
     max-width: 70%;
   }
-
   .detail-title {
-    font-size: 24px;
+    font-size: 26px;
   }
-
   .providers-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
@@ -205,35 +226,27 @@
     flex-direction: column;
     align-items: center;
   }
-
   .detail-image {
     max-width: 100%;
   }
-
   .detail-content {
     text-align: center;
   }
-
   .detail-title {
     font-size: 22px;
   }
-
   .providers-section h2 {
     font-size: 20px;
   }
-
   .provider-card {
-    padding: 14px;
+    padding: 16px;
   }
-
   .provider-name {
-    font-size: 16px;
+    font-size: 17px;
   }
-
   .provider-price {
-    font-size: 14px;
+    font-size: 15px;
   }
-
   .provider-book-btn {
     width: 100%;
     padding: 12px;
@@ -246,11 +259,9 @@
   .detail-title {
     font-size: 20px;
   }
-
   .detail-description {
     font-size: 14px;
   }
-
   .providers-grid {
     grid-template-columns: 1fr;
   }

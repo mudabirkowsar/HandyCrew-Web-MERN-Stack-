@@ -62,7 +62,7 @@
 }
 
 .btn {
-  padding: 20px 35px;
+  padding: 30px 35px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
@@ -75,6 +75,9 @@
   color: white;
   border: none;
   box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+  padding-top: 300;
+  height: 50px;
+  width: 300px;
 }
 
 .btn.primary:hover {
@@ -86,6 +89,8 @@
   background: transparent;
   border: 2px solid #555;
   color: #333;
+  height: 50px;
+  width: 300px;
 }
 
 .btn.secondary:hover {

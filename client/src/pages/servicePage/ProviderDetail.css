@@ -1,0 +1,208 @@
+/* Page Layout */
+.provider-detail-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: "Inter", sans-serif;
+  color: #2e2e2e;
+  background: linear-gradient(135deg, #f9fbff, #eef2ff);
+  min-height: 100vh;
+  padding-top: 110px;
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.back-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Provider card */
+.provider-detail-card {
+  display: flex;
+  gap: 25px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+  margin-bottom: 35px;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: transform 0.2s ease;
+}
+.provider-detail-card:hover {
+  transform: translateY(-4px);
+}
+
+.provider-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.provider-detail-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #2563eb;
+}
+
+.provider-detail-info {
+  flex: 2;
+}
+.provider-detail-name {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #111827;
+}
+.verified-badge {
+  font-size: 13px;
+  color: #fff;
+  background: #22c55e;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-left: 8px;
+}
+
+.provider-detail-service,
+.provider-detail-experience,
+.provider-detail-rating,
+.provider-detail-price,
+.provider-detail-contact,
+.provider-detail-location {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #444;
+}
+.provider-detail-price {
+  font-weight: 600;
+  color: #16a34a;
+}
+.provider-detail-rating {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+/* Section Containers */
+.provider-availability,
+.provider-services,
+.provider-reviews {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+.provider-availability:hover,
+.provider-services:hover,
+.provider-reviews:hover {
+  transform: translateY(-3px);
+}
+.provider-availability h2,
+.provider-services h2,
+.provider-reviews h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 14px;
+  border-left: 4px solid #2563eb;
+  padding-left: 8px;
+}
+
+/* Availability List */
+.provider-availability ul {
+  list-style: none;
+  padding: 0;
+}
+.provider-availability li {
+  font-size: 15px;
+  padding: 6px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+.provider-availability li:last-child {
+  border-bottom: none;
+}
+
+/* Services Offered */
+.provider-services ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+.provider-services li {
+  background: #eff6ff;
+  color: #1e40af;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.provider-services li:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Reviews */
+.review-card {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border: 1px solid #e5e7eb;
+}
+.review-card strong {
+  color: #111827;
+}
+.review-card p {
+  margin: 4px 0;
+  font-size: 15px;
+}
+
+/* Book Now Button */
+.book-now-wrapper {
+  text-align: center;
+  margin-top: 25px;
+}
+.book-now-btn {
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
+}
+.book-now-btn:hover {
+  background: linear-gradient(90deg, #1e40af, #1d4ed8);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .provider-detail-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .provider-detail-info {
+    margin-top: 15px;
+  }
+  .provider-services ul {
+    grid-template-columns: 1fr;
+  }
+}
