@@ -1,10 +1,10 @@
 const express = require("express")
 const router = express.Router();
 
-const { authMiddleware } = require("../middleware/authMiddleware");
+const { protect } = require("../middleware/authMiddleware");
 const Provider = require("../models/Provider");
 
-router.post("/", authMiddleware, async (req, res) => {
+router.post("/", protect, async (req, res) => {
     try {
         const provider = new Provider({
             user: req.body.id,
