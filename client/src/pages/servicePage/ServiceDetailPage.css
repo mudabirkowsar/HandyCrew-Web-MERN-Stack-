@@ -16,6 +16,7 @@
   font-weight: 500;
   transition: color 0.2s ease;
 }
+
 .back-link:hover {
   color: #1e40af;
 }
@@ -37,6 +38,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .detail-image {
   width: 100%;
   max-width: 400px;
@@ -47,11 +49,13 @@
 .detail-content {
   flex: 2;
 }
+
 .detail-title {
   font-size: 28px;
   margin-bottom: 10px;
   color: #111827;
 }
+
 .detail-category,
 .detail-type,
 .detail-description,
@@ -66,10 +70,13 @@
   display: flex;
   gap: 15px;
   font-weight: 600;
+  flex-wrap: wrap;
 }
+
 .detail-price {
   color: #16a34a;
 }
+
 .detail-rating {
   color: #f59e0b;
 }
@@ -78,6 +85,7 @@
 .providers-section {
   margin-top: 30px;
 }
+
 .providers-section h2 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -98,6 +106,7 @@
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .provider-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
@@ -117,6 +126,7 @@
   font-weight: 600;
   margin-bottom: 6px;
 }
+
 .verified-badge {
   font-size: 14px;
   color: #22c55e;
@@ -151,6 +161,7 @@
   font-weight: 500;
   transition: background 0.2s ease;
 }
+
 .provider-book-btn:hover {
   background: #1e40af;
 }
@@ -163,16 +174,84 @@
   margin-top: 20px;
 }
 
-/* Responsive */
+/* ========================= */
+/* Responsive breakpoints    */
+/* ========================= */
+
+/* Tablets (portrait & landscape) */
+@media (max-width: 1024px) {
+  .detail-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .detail-image {
+    max-width: 70%;
+  }
+
+  .detail-title {
+    font-size: 24px;
+  }
+
+  .providers-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+/* Phones */
 @media (max-width: 768px) {
   .detail-card {
     flex-direction: column;
     align-items: center;
   }
+
   .detail-image {
     max-width: 100%;
   }
+
   .detail-content {
     text-align: center;
+  }
+
+  .detail-title {
+    font-size: 22px;
+  }
+
+  .providers-section h2 {
+    font-size: 20px;
+  }
+
+  .provider-card {
+    padding: 14px;
+  }
+
+  .provider-name {
+    font-size: 16px;
+  }
+
+  .provider-price {
+    font-size: 14px;
+  }
+
+  .provider-book-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .detail-title {
+    font-size: 20px;
+  }
+
+  .detail-description {
+    font-size: 14px;
+  }
+
+  .providers-grid {
+    grid-template-columns: 1fr;
   }
 }

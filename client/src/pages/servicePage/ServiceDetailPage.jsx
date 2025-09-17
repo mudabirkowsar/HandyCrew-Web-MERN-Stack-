@@ -79,7 +79,9 @@ function ServiceDetailPage() {
                 <p className="provider-price">
                   ${provider.pricePerHour}/hr
                 </p>
-                <button className="provider-book-btn">Book Now</button>
+                <Link to={`/provider/${provider.id}`}>
+                  <button className="provider-book-btn">Book Now</button>
+                </Link>
               </div>
             ))}
           </div>

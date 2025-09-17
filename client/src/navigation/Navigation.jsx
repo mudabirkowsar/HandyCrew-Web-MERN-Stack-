@@ -9,6 +9,7 @@ import HomeScreenMain from '../pages/homePage/HomeScreenMain';
 import Login from '../pages/loginSignup/Login';
 import Signup from '../pages/loginSignup/Signup';
 import ServiceDetailPage from '../pages/servicePage/ServiceDetailPage';
+import ProviderDetail from '../pages/servicePage/ProviderDetail';
 
 function Navigation() {
     return (
@@ -24,6 +25,7 @@ function Navigation() {
                     <Route path="signup" element={<Signup/>} />
 
                     <Route path="service/:id" element={<ServiceDetailPage/>} />
+                    <Route path="provider/:id" element={<ProviderDetail/>} />
                 </Route>
             </Routes>
         </BrowserRouter>
