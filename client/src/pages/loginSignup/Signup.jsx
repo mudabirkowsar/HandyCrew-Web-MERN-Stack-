@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
 import { registerUser } from "../../api/api";
+import { toast } from "react-toastify";
 
 function Signup() {
-  const navigation = useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -52,9 +53,10 @@ function Signup() {
       try {
         await registerUser(formData);
         localStorage.setItem("token", data.token);
-        alert("Registration Successful ✅");
+        toast.success("Signup Successful")
+        navigate("/")
       } catch (error) {
-        alert("Registration Failed ❌");
+        toast.error("Something went wrong ❌");
       }
     }
   };

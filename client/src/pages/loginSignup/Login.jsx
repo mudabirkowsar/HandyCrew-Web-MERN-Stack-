@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { loginUser } from "../../api/api";
+import { toast } from "react-toastify";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
-  const navigation = useNavigate()
+  const navigate = useNavigate()
 
   // Collect all form data in one state object
   const [formData, setFormData] = useState({
@@ -27,10 +28,10 @@ function Login() {
     try {
       const { data } = await loginUser(formData);
       localStorage.setItem("token", data.token);
-      alert("Login Successful ✅");
+      toast.success("Login Successful");
       navigate("/")
     } catch (error) {
-      alert("Login Failed ❌");
+      toast.error("Something went wrong");
     }
   };
 
