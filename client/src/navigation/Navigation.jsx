@@ -10,6 +10,7 @@ import Login from '../pages/loginSignup/Login';
 import Signup from '../pages/loginSignup/Signup';
 import ServiceDetailPage from '../pages/servicePage/ServiceDetailPage';
 import ProviderDetail from '../pages/servicePage/ProviderDetail';
+import ProviderDetails from '../providerPages/ProviderDetails';
 
 function Navigation() {
     return (
@@ -26,6 +27,8 @@ function Navigation() {
 
                     <Route path="service/:id" element={<ServiceDetailPage/>} />
                     <Route path="provider/:id" element={<ProviderDetail/>} />
+
+                    <Route path="become-a-provider" element={<ProviderDetails/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

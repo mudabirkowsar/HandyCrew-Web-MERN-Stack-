@@ -34,7 +34,7 @@ export default function Navbar() {
         <li><Link to="/contact">Contact</Link></li>
       </ul>
       <div className="navbar-buttons">
-        <Link to="/provider">
+        <Link to="/become-a-provider">
           <button className="btn provider">Become a Provider</button>
         </Link>
 

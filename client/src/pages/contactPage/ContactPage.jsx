@@ -57,8 +57,7 @@ function ContactPage() {
         const response = await contact(formData, token);
 
         if (response.data.success) {
-          // toast.success(response.data.message);
-          toast.success("Message sent successfully");
+          toast.success(response.data.message);
           setFormData({ name: "", email: "", subject: "", message: "" });
           navigate("/");
         } else {

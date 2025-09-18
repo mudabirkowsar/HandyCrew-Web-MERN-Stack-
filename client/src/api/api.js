@@ -18,3 +18,6 @@ export const registerUser = (userData) => API.post("/auth/signup", userData);
 export const loginUser = (userData) => API.post("/auth/login", userData);
 
 export const contact = (contactData) => API.post("/contact", contactData);
+
+export const provider = (providerData) => API.post("/providers", providerData);
+

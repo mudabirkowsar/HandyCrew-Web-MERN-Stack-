@@ -5,20 +5,30 @@ const { protect } = require("../middleware/authMiddleware");
 const Provider = require("../models/Provider");
 
 router.post("/", protect, async (req, res) => {
+
+    const { email } = req.body;
+
+    const existing = await Provider.findOne({ email });
+    if (existing) {
+        return res.status(400).json({ message: "Provider already exists", success: false });
+    }
+
     try {
         const provider = new Provider({
-            user: req.body.id,
+            user: req.user._id,
             ...req.body,
         });
 
         await provider.save();
         res.status(201).json({
             message: "Regestered Successfully",
+            success: true,
             provider,
         })
     } catch (error) {
         res.status(400).json({
-            message: "Error creating provider",
+            message: "Error in creating provider",
+            success: false,
             error: error.message,
         })
     }
