@@ -11,6 +11,7 @@ import Signup from '../pages/loginSignup/Signup';
 import ServiceDetailPage from '../pages/servicePage/ServiceDetailPage';
 import ProviderDetail from '../pages/servicePage/ProviderDetail';
 import ProviderDetails from '../providerPages/ProviderDetails';
+import ProviderDashboard from '../providerPages/providerDashboard/ProviderDashboard';
 
 function Navigation() {
     return (
@@ -29,6 +30,7 @@ function Navigation() {
                     <Route path="provider/:id" element={<ProviderDetail/>} />
 
                     <Route path="become-a-provider" element={<ProviderDetails/>} />
+                    <Route path="provider-dashboard" element={<ProviderDashboard/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

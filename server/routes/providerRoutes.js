@@ -3,36 +3,48 @@ const router = express.Router();
 
 const { protect } = require("../middleware/authMiddleware");
 const Provider = require("../models/Provider");
+const User = require("../models/User");
 
 router.post("/", protect, async (req, res) => {
-
     const { email } = req.body;
 
-    const existing = await Provider.findOne({ email });
-    if (existing) {
-        return res.status(400).json({ message: "Provider already exists", success: false });
-    }
-
     try {
+        // check if provider already exists
+        const existing = await Provider.findOne({ email });
+        if (existing) {
+            return res
+                .status(400)
+                .json({ message: "Provider already exists", success: false });
+        }
+
+        // create new provider
         const provider = new Provider({
             user: req.user._id,
             ...req.body,
         });
 
         await provider.save();
+
+        await User.findOneAndUpdate(
+            req.user._id,
+            { role: "provider" },
+            { new: true }
+        );
+
         res.status(201).json({
-            message: "Regestered Successfully",
+            message: "Registered Successfully",
             success: true,
             provider,
-        })
+        });
     } catch (error) {
         res.status(400).json({
             message: "Error in creating provider",
             success: false,
             error: error.message,
-        })
+        });
     }
-})
+});
+
 
 router.get("/", async (req, res) => {
     try {

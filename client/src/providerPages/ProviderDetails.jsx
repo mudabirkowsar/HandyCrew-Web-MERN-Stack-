@@ -75,6 +75,7 @@ function ProviderDetails() {
 
             const response = await provider(payload);
             if (response.data.success) {
+                navigate("/provider-dashboard");
                 toast.success(response.data.message || "Provider details submitted successfully");
             } else {
                 toast.error(response.data.message || "Error submitting provider details");
