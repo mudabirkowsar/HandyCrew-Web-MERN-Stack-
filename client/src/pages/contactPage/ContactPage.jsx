@@ -1,7 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ContactPage.css";
+import { contact } from "../../api/api";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function ContactPage() {
+  // State for form inputs
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  // State for errors
+  const [errors, setErrors] = useState({});
+
+  // Handle input change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    // Remove error when user starts typing
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  // Form submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    let newErrors = {};
+
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Enter a valid email";
+    }
+    if (!formData.subject.trim()) newErrors.subject = "Subject is required";
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+
+    setErrors(newErrors);
+
+    // If no errors, submit form
+    if (Object.keys(newErrors).length === 0) {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          toast.error("Login to continue");
+          navigate("/login");
+          return;
+        }
+        await contact(formData);
+        toast.success("Message sent successfully");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        navigate("/");
+      } catch (error) {
+        toast.error("Failed to send message");
+      }
+    }
+  };
+
   return (
     <div className="contact-page">
       <h2 className="contact-title">Get in Touch with Us</h2>
@@ -21,17 +82,49 @@ function ContactPage() {
         {/* Contact Form */}
         <div className="contact-form">
           <h3>Send a Message</h3>
-          <form>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <input type="text" placeholder="Subject" required />
-            <textarea placeholder="Your Message" rows="6" required></textarea>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            {errors.name && <p className="error">{errors.name}</p>}
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {errors.email && <p className="error">{errors.email}</p>}
+
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              value={formData.subject}
+              onChange={handleChange}
+            />
+            {errors.subject && <p className="error">{errors.subject}</p>}
+
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              rows="6"
+              value={formData.message}
+              onChange={handleChange}
+            ></textarea>
+            {errors.message && <p className="error">{errors.message}</p>}
+
             <button type="submit">Send Message</button>
           </form>
         </div>
       </div>
 
-      {/* Map Placeholder */}
+      {/* Map */}
       <div className="contact-map">
         <h3>Our Location</h3>
         <div className="map-container">
@@ -47,7 +140,6 @@ function ContactPage() {
           ></iframe>
         </div>
       </div>
-
     </div>
   );
 }
