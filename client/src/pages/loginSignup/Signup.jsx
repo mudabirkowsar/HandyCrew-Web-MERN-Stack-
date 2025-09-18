@@ -51,7 +51,7 @@ function Signup() {
     e.preventDefault();
     if (validate()) {
       try {
-        await registerUser(formData);
+        const { data } = await registerUser(formData);
         localStorage.setItem("token", data.token);
         toast.success("Signup Successful")
         navigate("/")

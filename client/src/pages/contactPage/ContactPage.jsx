@@ -53,15 +53,27 @@ function ContactPage() {
           navigate("/login");
           return;
         }
-        await contact(formData);
-        toast.success("Message sent successfully");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-        navigate("/");
+
+        const response = await contact(formData, token);
+
+        if (response.data.success) {
+          // toast.success(response.data.message);
+          toast.success("Message sent successfully");
+          setFormData({ name: "", email: "", subject: "", message: "" });
+          navigate("/");
+        } else {
+          toast.error(response.data.message || "Failed to send message");
+        }
       } catch (error) {
-        toast.error("Failed to send message");
+        if (error.response && error.response.data) {
+          toast.warning(error.response.data.message);
+        } else {
+          toast.error("Something went wrong. Try again.");
+        }
       }
     }
   };
+
 
   return (
     <div className="contact-page">
