@@ -27,13 +27,27 @@ function Login() {
     e.preventDefault();
     try {
       const { data } = await loginUser(formData);
-      localStorage.setItem("token", data.token);
-      toast.success("Login Successful");
-      navigate("/")
+
+      if (data.success) {
+        // Save token + user in localStorage
+        localStorage.setItem("token", data.token);
+
+        // ✅ Redirect based on role
+        if (data.user.role === "provider") {
+          navigate("/provider-dashboard");
+          toast("Login Successful");
+        } else {
+          toast("Login Successful");
+          navigate("/");
+        }
+      } else {
+        toast.error(data.message || "Login failed");
+      }
     } catch (error) {
       toast.error("Something went wrong");
     }
   };
+
 
   return (
     <div className="login-page">

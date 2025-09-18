@@ -26,7 +26,7 @@ router.post("/signup", async (req, res) => {
             password: hashedPassword,
         });
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, {
             expiresIn: "7d",
         })
 
@@ -49,6 +49,7 @@ router.post("/login", async (req, res) => {
         const user = await User.findOne({ email })
         if (!user) {
             res.status(400).json({
+                success: false,
                 message: "User not found",
             })
         }
@@ -56,21 +57,23 @@ router.post("/login", async (req, res) => {
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             res.status(400).json({
+                success: false,
                 message: "Invalid Credentials",
             });
         }
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ id: user._id, role:user.role }, process.env.JWT_SECRET, {
             expiresIn: "7d",
         });
 
         res.json({
+            success: true,
             message: "Login Successfully",
             token,
-            user: { id: user._id, name: user.name, email: user.email }
+            user: { id: user._id, name: user.name, email: user.email, role: user.role }
         })
     } catch (err) {
-        res.status(500).json({ message: "Server error", error: err.message });
+        res.status(500).json({ message: "Server error", error: err.message, success: false });
     }
 })
 
