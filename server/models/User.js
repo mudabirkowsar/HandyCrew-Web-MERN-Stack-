@@ -19,6 +19,13 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 6,
     },
+    location: {
+        city: String,
+        state: String,
+        zipcode: String,
+        latitude: Number,
+        longitude: Number,
+    },
     role: {
         type: String,
         enum: ["user", "provider", "admin"],

@@ -30,7 +30,7 @@ const providerSchema = new mongoose.Schema(
             required: true,
         },
         phone: {
-            type: String, // ✅ changed from Number → to allow +91..., etc.
+            type: String,
             required: true,
         },
         email: {
@@ -57,7 +57,7 @@ const providerSchema = new mongoose.Schema(
         },
 
         profileImage: {
-            type: String, // ✅ no longer required
+            type: String, 
         },
 
         servicesOffered: [String],

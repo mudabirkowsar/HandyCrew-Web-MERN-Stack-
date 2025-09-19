@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import "./ProviderDetail.css";
 import { getProviderById } from "../../api/api";
+import { jwtDecode } from "jwt-decode";
+import { toast } from 'react-toastify'
 
 function ProviderDetail() {
   const { id } = useParams();
   const [provider, setProvider] = useState(null);
+  const [user, setUser] = useState(null);
+  const [userLocation, setUserLocation] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchProviders = async (id) => {
@@ -18,9 +23,32 @@ function ProviderDetail() {
     }
 
     fetchProviders(id);
-  }, [])
+  }, []);
 
-  console.log(provider);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decoded = jwtDecode(token);
+      setUser(decoded);
+      setUserLocation(decoded.location)
+
+      if (!userLocation) {
+        console.log("Location not found");
+        toast("Please complete your Profile")
+        navigate("/login");
+      } else {
+        console.log("User location:", decoded.location);
+      }
+    } else {
+      console.log("No token found, redirecting to login...");
+      toast("Please Login to continue");
+      navigate("/login");
+    }
+  }, [navigate]);
+
+
+
 
   if (!provider) {
     return (

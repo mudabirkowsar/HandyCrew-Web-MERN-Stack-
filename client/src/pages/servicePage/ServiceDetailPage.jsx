@@ -17,7 +17,6 @@ function ServiceDetailPage() {
 
     fetchProviders();
   }, []);
-  console.log("All Providers from API:", allProviders);
 
   if (!service) {
     return (
