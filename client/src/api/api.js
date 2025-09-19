@@ -21,3 +21,7 @@ export const contact = (contactData) => API.post("/contact", contactData);
 
 export const provider = (providerData) => API.post("/providers", providerData);
 
+export const getAllProviders = () => API.get("/providers");
+
+export const getProviderById = (id) => API.get(`/providers/${id}`);
+

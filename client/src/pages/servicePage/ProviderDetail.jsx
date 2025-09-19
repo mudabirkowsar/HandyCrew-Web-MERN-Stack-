@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import servicesProviderData from "../../../fullData/serviceProviders.json";
 import "./ProviderDetail.css";
+import { getProviderById } from "../../api/api";
 
 function ProviderDetail() {
   const { id } = useParams();
-  const provider = servicesProviderData.find((p) => String(p.id) === id);
+  const [provider, setProvider] = useState(null);
+
+  useEffect(() => {
+    const fetchProviders = async (id) => {
+      try {
+        const response = await getProviderById(id);
+        setProvider(response.data);
+      } catch (error) {
+        console.log("Error in fetching in detail page", error.message)
+      }
+    }
+
+    fetchProviders(id);
+  }, [])
+
+  console.log(provider);
 
   if (!provider) {
     return (
@@ -66,14 +81,19 @@ function ProviderDetail() {
       <div className="provider-availability">
         <h2>Availability</h2>
         <ul>
-          {Object.entries(provider.availability).map(([day, time], i) => (
+          {Object.entries(provider.availability || {}).map(([day, { start, end, off }], i) => (
             <li key={i}>
               <strong>{day.charAt(0).toUpperCase() + day.slice(1)}:</strong>{" "}
-              {time}
+              {off ? (
+                <span className="day-off">Off</span>
+              ) : (
+                <span>{start} - {end}</span>
+              )}
             </li>
           ))}
         </ul>
       </div>
+
 
       {/* Services Offered */}
       <div className="provider-services">

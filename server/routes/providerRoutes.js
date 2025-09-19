@@ -48,7 +48,7 @@ router.post("/", protect, async (req, res) => {
 
 router.get("/", async (req, res) => {
     try {
-        const providers = await Provider.find()
+        const providers = await Provider.find() 
         res.json(providers);
     } catch (error) {
         res.status(500).json({ message: "Error fetching providers" });

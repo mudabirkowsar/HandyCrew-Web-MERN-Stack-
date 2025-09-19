@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import servicesData from "../../../fullData/services.json";
-import servicesProviderData from "../../../fullData/serviceProviders.json";
 import "./ServiceDetailPage.css";
+import { getAllProviders } from "../../api/api";
 
 function ServiceDetailPage() {
   const { id } = useParams();
   const service = servicesData.find((s) => String(s.id) === id);
+  const [allProviders, setAllProviders] = useState([]);
+
+  useEffect(() => {
+    const fetchProviders = async () => {
+        const response = await getAllProviders();
+        setAllProviders(response.data);
+    };
+
+    fetchProviders();
+  }, []);
+  console.log("All Providers from API:", allProviders);
 
   if (!service) {
     return (
@@ -18,7 +29,7 @@ function ServiceDetailPage() {
   }
 
   // filter providers by service type
-  const providers = servicesProviderData.filter(
+  const providers = allProviders.filter(
     (provider) =>
       provider.serviceType &&
       service.type &&
@@ -79,7 +90,7 @@ function ServiceDetailPage() {
                 <p className="provider-price">
                   ${provider.pricePerHour}/hr
                 </p>
-                <Link to={`/provider/${provider.id}`}>
+                <Link to={`/provider/${provider._id}`}>
                   <button className="provider-book-btn">Book Now</button>
                 </Link>
               </div>

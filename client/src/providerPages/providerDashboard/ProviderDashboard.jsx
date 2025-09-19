@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ProviderDashboard.css";
 
 function ProviderDashboard() {
-  const [activeTab, setActiveTab] = useState("profile");
+  const [activeTab, setActiveTab] = useState("dashboard");
 
   return (
     <div className="dashboard">
@@ -10,6 +10,12 @@ function ProviderDashboard() {
       <aside className="sidebar">
         <h2 className="logo">Provider</h2>
         <ul>
+          <li
+            className={activeTab === "dashboard" ? "active" : ""}
+            onClick={() => setActiveTab("dashboard")}
+          >
+            Dashboard
+          </li>
           <li
             className={activeTab === "profile" ? "active" : ""}
             onClick={() => setActiveTab("profile")}
@@ -39,6 +45,32 @@ function ProviderDashboard() {
 
       {/* Main Content */}
       <main className="content">
+        {/* Dashboard Overview */}
+        {activeTab === "dashboard" && (
+          <section>
+            <h2>Dashboard Overview</h2>
+            <div className="stats-grid">
+              <div className="stat-card">
+                <h3>$2,340</h3>
+                <p>Total Income</p>
+              </div>
+              <div className="stat-card">
+                <h3>18</h3>
+                <p>Completed Jobs</p>
+              </div>
+              <div className="stat-card">
+                <h3>4.8⭐</h3>
+                <p>Average Rating</p>
+              </div>
+              <div className="stat-card">
+                <h3>5</h3>
+                <p>Pending Requests</p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Profile */}
         {activeTab === "profile" && (
           <section>
             <h2>My Profile</h2>
@@ -60,6 +92,7 @@ function ProviderDashboard() {
           </section>
         )}
 
+        {/* Services */}
         {activeTab === "services" && (
           <section>
             <h2>My Services</h2>
@@ -90,6 +123,7 @@ function ProviderDashboard() {
           </section>
         )}
 
+        {/* Requests */}
         {activeTab === "requests" && (
           <section>
             <h2>Service Requests</h2>
@@ -108,6 +142,7 @@ function ProviderDashboard() {
           </section>
         )}
 
+        {/* Settings */}
         {activeTab === "settings" && (
           <section>
             <h2>Settings</h2>

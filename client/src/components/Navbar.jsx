@@ -9,7 +9,7 @@ export default function Navbar() {
   const [token, setToken] = useState();
   const [user, setUser] = useState(null);
 
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
