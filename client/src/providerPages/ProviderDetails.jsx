@@ -89,6 +89,13 @@ function ProviderDetails() {
     return (
         <div className="provider-details-page">
             <h2>Provider Registration</h2>
+
+            {/* Info Note */}
+            <p className="note-text">
+                Please fill in all your details carefully. Accurate information increases your chances of getting hired,
+                builds trust with customers, and helps us verify your profile quickly.
+            </p>
+
             <form onSubmit={handleSubmit} className="provider-form">
 
                 {/* Personal Info */}
@@ -100,8 +107,24 @@ function ProviderDetails() {
                     </div>
                     <div className="form-group">
                         <label>Service Type</label>
-                        <input type="text" name="serviceType" value={formData.serviceType} onChange={handleChange} required />
+                        <select
+                            name="serviceType"
+                            value={formData.serviceType}
+                            onChange={handleChange}
+                            required
+                        >
+                            <option value="">Select a Service</option>
+                            <option value="Plumber">Plumber</option>
+                            <option value="Electrician">Electrician</option>
+                            <option value="Mechanical">Mechanical</option>
+                            <option value="AC and Cooling">AC and Cooling</option>
+                            <option value="Carpentry">Carpentry</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Painter">Painter</option>
+                            <option value="Beautician">Beautician</option>
+                        </select>
                     </div>
+
                     <div className="form-group">
                         <label>Experience (Years)</label>
                         <input type="number" name="experience" value={formData.experience} onChange={handleChange} required />
