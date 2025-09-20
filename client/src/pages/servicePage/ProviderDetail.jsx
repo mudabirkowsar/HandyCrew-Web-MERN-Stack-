@@ -29,23 +29,19 @@ function ProviderDetail() {
       try {
         const currUser = await getCurrentUser();
         setUser(currUser.data);
+        if (!currUser.data.location) {
+          navigate("/update-profile")
+          toast("Please update your profile")
+        }
+        else {
+          console.log("Found");
+        }
       } catch (error) {
         console.log("Error in fetching current user", error.message);
       }
     };
     fetchCurrentUser();
   }, []);
-
-  console.log(user)
-
-  if (user && user.location) {
-    toast("Location found")
-    console.log("Location found");
-  } else {
-    navigate("/update-profile")
-    toast("Please update your profile")
-    console.log("Cant find location");
-  }
 
   if (!provider) {
     return (
