@@ -30,8 +30,8 @@ export default function HomePage() {
             home services, repairs, and more — all in one place.
           </p>
           <div className="hero-buttons">
-            <button className="btn primary">Get Started</button>
-            <button className="btn secondary">Learn More</button>
+            <button className="started">Get Started</button>
+            <button className="learnMore">Learn More</button>
           </div>
         </div>
 

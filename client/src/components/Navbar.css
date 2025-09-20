@@ -1,4 +1,4 @@
-/* Navbar container */
+/* Base Navbar */
 .navbar {
   width: 100%;
   height: 70px;
@@ -17,9 +17,8 @@
   backdrop-filter: blur(8px);
 }
 
-/* Add subtle shadow when scrolling */
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
@@ -28,7 +27,6 @@
   font-size: 26px;
   font-weight: 700;
   color: #1a73e8;
-  flex-shrink: 0;
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -37,12 +35,11 @@
   color: #0d47a1;
 }
 
-/* Links */
+/* Links (Desktop Only) */
 .navbar-links {
   list-style: none;
   display: flex;
   gap: 30px;
-  flex-wrap: wrap;
 }
 
 .navbar-links li a {
@@ -50,40 +47,22 @@
   color: #333;
   font-size: 16px;
   font-weight: 500;
-  position: relative;
   transition: color 0.3s ease;
-}
-
-.navbar-links li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #1a73e8;
-  transition: width 0.3s ease;
 }
 
 .navbar-links li a:hover {
   color: #1a73e8;
 }
 
-.navbar-links li a:hover::after {
-  width: 100%;
-}
-
 /* Buttons */
 .navbar-buttons {
   display: flex;
   gap: 15px;
-  flex-shrink: 0;
 }
 
 .btn {
   padding: 8px 20px;
   border-radius: 30px;
-  /* More modern rounded buttons */
   font-size: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -92,7 +71,6 @@
   border: none;
 }
 
-/* Login / Signup Button */
 .btn.login {
   background: transparent;
   border: 1px solid #555;
@@ -105,7 +83,6 @@
   color: #1a73e8;
 }
 
-/* Become Provider CTA */
 .btn.provider {
   background: linear-gradient(135deg, #1a73e8, #1666cc);
   color: #fff;
@@ -116,8 +93,94 @@
 .btn.provider:hover {
   background: linear-gradient(135deg, #1666cc, #0d47a1);
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(26, 115, 232, 0.35);
 }
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1a73e8;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 75%;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 2000;
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile Menu Items */
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.mobile-menu ul li a {
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.mobile-menu ul li a:hover {
+  color: #1a73e8;
+}
+
+/* Mobile Buttons */
+.mobile-buttons {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.mobile-buttons .btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+/* Close Button */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #333;
+  align-self: flex-end;
+  margin-bottom: 1rem;
+}
+
 
 /* Modal Overlay */
 .modal-overlay {
@@ -255,36 +318,34 @@
 }
 
 
-/* Responsive Fix */
+/* Responsive Tweaks */
 @media (max-width: 900px) {
   .navbar {
     padding: 0 20px;
+    height: 65px;
   }
-
-  .navbar-links {
-    gap: 18px;
+  .navbar-links,
+  .navbar-buttons {
+    display: none; /* hide desktop nav */
   }
-
-  .btn {
-    padding: 7px 16px;
-    font-size: 14px;
+  .hamburger {
+    display: block;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 12px 20px;
-    text-align: center;
+    padding: 0 16px;
+    height: 60px;
   }
-
-  .navbar-links {
-    margin: 12px 0;
-    justify-content: center;
+  .navbar-logo {
+    font-size: 22px;
   }
-
-  .navbar-buttons {
-    margin-top: 12px;
+  .hamburger {
+    font-size: 1.6rem;
+  }
+  .mobile-menu {
+    width: 85%;
+    padding: 1.5rem 1rem;
   }
 }
