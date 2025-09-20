@@ -33,7 +33,7 @@
   border: 3px solid #0077ff;
   object-fit: cover;
   margin-bottom: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .profile-header h2 {
@@ -72,8 +72,15 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .profile-actions {
@@ -102,3 +109,61 @@
   transform: scale(0.97);
 }
 
+/* 📱 Responsive for tablets */
+@media (max-width: 1024px) {
+  .profile-card {
+    width: 380px;
+    padding: 25px 30px;
+  }
+
+  .profile-avatar {
+    width: 95px;
+    height: 95px;
+  }
+
+  .profile-header h2 {
+    font-size: 20px;
+  }
+
+  .profile-info p {
+    font-size: 15px;
+  }
+}
+
+/* 📱 Responsive for mobile */
+@media (max-width: 600px) {
+  .profile-container {
+    padding: 20px;
+    padding-top: 70px;
+  }
+
+  .profile-card {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-header h2 {
+    font-size: 18px;
+  }
+
+  .profile-info {
+    text-align: center;
+  }
+
+  .profile-info p {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+
+  .update-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+  }
+}
