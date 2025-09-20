@@ -23,8 +23,8 @@
 
 .request-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 15px 20px;
     background-color: #f4f6f8;
     border-radius: 10px;
@@ -37,9 +37,39 @@
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
+.request-avatar {
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.request-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.default-avatar {
+    font-size: 50px;
+    color: #bbb;
+}
+
 .request-info {
+    flex: 1;
+}
+
+.request-name {
+    font-weight: bold;
     font-size: 16px;
-    color: #333;
+    margin-bottom: 5px;
+}
+
+.request-service {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .request-buttons {

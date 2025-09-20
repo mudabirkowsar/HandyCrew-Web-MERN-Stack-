@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getDashboardData } from "../../../api/api";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaEdit, FaTrash } from "react-icons/fa";
 import "./ServicesScreen.css";
 
 function ServicesScreen() {
@@ -28,8 +28,8 @@ function ServicesScreen() {
           <div className="service-item">
             <span>{service}</span>
             <div className="service-buttons">
-              <button className="edit-btn">Edit</button>
-              <button className="delete-btn">Delete</button>
+              <button className="edit-btn"><FaEdit /> Edit</button>
+              <button className="delete-btn"><FaTrash /> Delete</button>
             </div>
           </div>
         ) : (
