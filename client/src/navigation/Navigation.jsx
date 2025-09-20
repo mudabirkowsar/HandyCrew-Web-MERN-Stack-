@@ -13,6 +13,7 @@ import ProviderDetail from '../pages/servicePage/ProviderDetail';
 import ProviderDetails from '../providerPages/ProviderDetails';
 import ProviderDashboard from '../providerPages/providerDashboard/ProviderDashboard';
 import UpdatePage from '../pages/userPages/update/UpdatePage';
+import ViewProfilePage from '../pages/userPages/viewProfile/ViewProfilePage';
 
 function Navigation() {
     return (
@@ -21,19 +22,20 @@ function Navigation() {
                 {/* Wrap pages that should have Navbar inside MainLayout */}
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<HomeScreenMain />} />
-                    <Route path="services" element={<ServicePage/>} />
-                    <Route path="about" element={<AboutPage/>} />
-                    <Route path="contact" element={<ContactPage/>} />
-                    <Route path="login" element={<Login/>} />
-                    <Route path="signup" element={<Signup/>} />
+                    <Route path="services" element={<ServicePage />} />
+                    <Route path="about" element={<AboutPage />} />
+                    <Route path="contact" element={<ContactPage />} />
+                    <Route path="login" element={<Login />} />
+                    <Route path="signup" element={<Signup />} />
 
-                    <Route path="service/:id" element={<ServiceDetailPage/>} />
-                    <Route path="provider/:id" element={<ProviderDetail/>} />
+                    <Route path="service/:id" element={<ServiceDetailPage />} />
+                    <Route path="provider/:id" element={<ProviderDetail />} />
 
-                    <Route path="become-a-provider" element={<ProviderDetails/>} />
-                    <Route path="provider-dashboard" element={<ProviderDashboard/>} />
+                    <Route path="become-a-provider" element={<ProviderDetails />} />
+                    <Route path="provider-dashboard" element={<ProviderDashboard />} />
 
-                    <Route path ="update-profile" element={<UpdatePage/>} />
+                    <Route path="update-profile" element={<UpdatePage />} />
+                    <Route path="profile" element={<ViewProfilePage />} />
                 </Route>
             </Routes>
         </BrowserRouter>

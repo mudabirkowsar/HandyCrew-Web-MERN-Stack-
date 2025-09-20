@@ -3,10 +3,13 @@ import axios from "axios";
 import { getCurrentUser, updateUser } from "../../../api/api";
 import "./UpdatePage.css";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function UpdatePage() {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         name: "",
+        image: "",
         phone: "",
         city: "",
         state: "",
@@ -22,6 +25,7 @@ function UpdatePage() {
                 setFormData({
                     name: user.name || "",
                     phone: user.phone || "",
+                    image: user.image || "",
                     city: user.location?.city || "",
                     state: user.location?.state || "",
                     zipcode: user.location?.zipcode || "",
@@ -43,6 +47,7 @@ function UpdatePage() {
             const res = await updateUser({
                 name: formData.name,
                 phone: formData.phone,
+                image: formData.image,
                 location: {
                     city: formData.city,
                     state: formData.state,
@@ -50,7 +55,7 @@ function UpdatePage() {
                 },
             });
             toast("Profile updated successfully!");
-            console.log("Updated User:", res.data);
+            navigate("/profile");
         } catch (err) {
             console.error("Error updating profile", err.response?.data || err.message);
         }
@@ -61,6 +66,7 @@ function UpdatePage() {
             <h2>Update Profile</h2>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+                <input type="text" name="image URL" placeholder="image" value={formData.image} onChange={handleChange} />
                 <input type="text" name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} />
                 <input type="text" name="city" placeholder="City" value={formData.city} onChange={handleChange} />
                 <input type="text" name="state" placeholder="State" value={formData.state} onChange={handleChange} />

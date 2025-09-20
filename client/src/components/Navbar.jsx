@@ -79,7 +79,7 @@ export default function Navbar() {
                   <Link to="/profile">
                     <button className="dropdown-item">View Profile</button>
                   </Link>
-                  <Link to="/edit-profile">
+                  <Link to="/update-profile">
                     <button className="dropdown-item">Edit Profile</button>
                   </Link>
                   <button
