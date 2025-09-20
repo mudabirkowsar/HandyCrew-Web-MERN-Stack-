@@ -29,3 +29,5 @@ export const getAllProviders = () => API.get("/providers");
 
 export const getProviderById = (id) => API.get(`/providers/${id}`);
 
+export const getDashboardData = () => API.get("/dashboard");
+

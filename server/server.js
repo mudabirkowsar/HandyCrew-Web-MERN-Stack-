@@ -25,10 +25,12 @@ app.get("/", (req, res) => {
 const authRoutes = require("./routes/authRoutes");
 const providerRoutes = require("./routes/providerRoutes");
 const contactRoutes = require("./routes/contactRoutes");
+const dashobardRoutes = require("./routes/dashboardRoutes");
 
 app.use("/api/auth", authRoutes);
 app.use("/api/providers", providerRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api", dashobardRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log("Running on port 5000")
