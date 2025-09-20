@@ -46,36 +46,39 @@ router.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        const user = await User.findOne({ email })
+        const user = await User.findOne({ email });
         if (!user) {
-            res.status(400).json({
+            return res.status(400).json({
                 success: false,
                 message: "User not found",
-            })
+            });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            res.status(400).json({
+            return res.status(400).json({
                 success: false,
                 message: "Invalid Credentials",
             });
         }
 
-        const token = jwt.sign({ id: user._id, name: user.name, role: user.role, email: user.email, location: user.location }, process.env.JWT_SECRET, {
-            expiresIn: "7d",
-        })
+        const token = jwt.sign(
+            { id: user._id, name: user.name, role: user.role, email: user.email, location: user.location },
+            process.env.JWT_SECRET,
+            { expiresIn: "7d" }
+        );
 
         res.json({
             success: true,
             message: "Login Successfully",
             token,
             user: { id: user._id, name: user.name, email: user.email, role: user.role }
-        })
+        });
     } catch (err) {
         res.status(500).json({ message: "Server error", error: err.message, success: false });
     }
-})
+});
+
 
 // routes/user.js
 router.put("/update", async (req, res) => {
