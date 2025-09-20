@@ -26,7 +26,7 @@ router.post("/signup", async (req, res) => {
             password: hashedPassword,
         });
 
-        const token = jwt.sign({ id: user._id, role: user.role, email: user.email, location: user.location }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ id: user._id, name: user.name, role: user.role, email: user.email, location: user.location }, process.env.JWT_SECRET, {
             expiresIn: "7d",
         })
 
@@ -62,7 +62,7 @@ router.post("/login", async (req, res) => {
             });
         }
 
-        const token = jwt.sign({ id: user._id, role: user.role, email: user.email, location: user.location }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ id: user._id, name: user.name, role: user.role, email: user.email, location: user.location }, process.env.JWT_SECRET, {
             expiresIn: "7d",
         })
 
