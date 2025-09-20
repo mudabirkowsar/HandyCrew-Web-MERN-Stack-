@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import "./ProviderDetail.css";
-import { getProviderById } from "../../api/api";
-import { jwtDecode } from "jwt-decode";
+import { getCurrentUser, getProviderById } from "../../api/api";
 import { toast } from 'react-toastify'
 
 function ProviderDetail() {
@@ -25,30 +24,28 @@ function ProviderDetail() {
     fetchProviders(id);
   }, []);
 
-
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      const decoded = jwtDecode(token);
-      setUser(decoded);
-      setUserLocation(decoded.location)
-
-      if (!userLocation) {
-        console.log("Location not found");
-        toast("Please complete your Profile")
-        navigate("/login");
-      } else {
-        console.log("User location:", decoded.location);
+    const fetchCurrentUser = async () => {
+      try {
+        const currUser = await getCurrentUser();
+        setUser(currUser.data);
+      } catch (error) {
+        console.log("Error in fetching current user", error.message);
       }
-    } else {
-      console.log("No token found, redirecting to login...");
-      toast("Please Login to continue");
-      navigate("/login");
-    }
-  }, [navigate]);
+    };
+    fetchCurrentUser();
+  }, []);
 
+  console.log(user)
 
-
+  if (user && user.location) {
+    toast("Location found")
+    console.log("Location found");
+  } else {
+    navigate("/update-profile")
+    toast("Please update your profile")
+    console.log("Cant find location");
+  }
 
   if (!provider) {
     return (

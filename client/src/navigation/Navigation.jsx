@@ -12,6 +12,7 @@ import ServiceDetailPage from '../pages/servicePage/ServiceDetailPage';
 import ProviderDetail from '../pages/servicePage/ProviderDetail';
 import ProviderDetails from '../providerPages/ProviderDetails';
 import ProviderDashboard from '../providerPages/providerDashboard/ProviderDashboard';
+import UpdatePage from '../pages/userPages/update/UpdatePage';
 
 function Navigation() {
     return (
@@ -31,6 +32,8 @@ function Navigation() {
 
                     <Route path="become-a-provider" element={<ProviderDetails/>} />
                     <Route path="provider-dashboard" element={<ProviderDashboard/>} />
+
+                    <Route path ="update-profile" element={<UpdatePage/>} />
                 </Route>
             </Routes>
         </BrowserRouter>
