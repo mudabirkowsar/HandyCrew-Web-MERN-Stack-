@@ -7,41 +7,37 @@ import { toast } from 'react-toastify'
 function ProviderDetail() {
   const { id } = useParams();
   const [provider, setProvider] = useState(null);
-  const [user, setUser] = useState(null);
-  const [userLocation, setUserLocation] = useState(null)
   const navigate = useNavigate()
 
   useEffect(() => {
-    const fetchProviders = async (id) => {
+    const fetchProvider = async () => {
       try {
         const response = await getProviderById(id);
         setProvider(response.data);
       } catch (error) {
-        console.log("Error in fetching in detail page", error.message)
-      }
-    }
-
-    fetchProviders(id);
-  }, []);
-
-  useEffect(() => {
-    const fetchCurrentUser = async () => {
-      try {
-        const currUser = await getCurrentUser();
-        setUser(currUser.data);
-        if (!currUser.data.location) {
-          navigate("/update-profile")
-          toast("Please update your profile")
-        }
-        else {
-          console.log("Found");
-        }
-      } catch (error) {
-        console.log("Error in fetching current user", error.message);
+        console.error("Error fetching provider:", error.message);
       }
     };
-    fetchCurrentUser();
-  }, []);
+    fetchProvider();
+  }, [id]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const currUser = await getCurrentUser();
+
+        if (!currUser.data.location) {
+          toast.error("Please complete your profile");
+          navigate("/update-profile");
+        }
+      } catch (error) {
+        toast.error("Please login to continue");
+        navigate("/login");
+      }
+    };
+
+    fetchUser();
+  }, [navigate]);
 
   if (!provider) {
     return (
