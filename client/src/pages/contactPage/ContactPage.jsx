@@ -84,8 +84,8 @@ function ContactPage() {
           <h3>Contact Information</h3>
           <p>We are here to help you! Reach out to us anytime.</p>
           <ul>
-            <li><strong>Address:</strong> 123 Handy St, City, Country</li>
-            <li><strong>Phone:</strong> +1 234 567 890</li>
+            <li><strong>Address:</strong> 12B, Srinagar, India</li>
+            <li><strong>Phone:</strong> +191 6006287541</li>
             <li><strong>Email:</strong> support@handycrew.com</li>
           </ul>
         </div>
