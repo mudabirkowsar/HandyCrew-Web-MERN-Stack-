@@ -43,6 +43,7 @@
 }
 
 .navbar-links li a {
+  position: relative;
   text-decoration: none;
   color: #333;
   font-size: 16px;
@@ -50,8 +51,24 @@
   transition: color 0.3s ease;
 }
 
+/* Underline effect */
+.navbar-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #1a73e8;
+  transition: width 0.3s ease;
+}
+
 .navbar-links li a:hover {
   color: #1a73e8;
+}
+
+.navbar-links li a:hover::after {
+  width: 100%;
 }
 
 /* Buttons */
@@ -144,6 +161,7 @@
 }
 
 .mobile-menu ul li a {
+  position: relative;
   font-size: 18px;
   color: #333;
   text-decoration: none;
@@ -151,8 +169,24 @@
   transition: color 0.2s;
 }
 
+/* Underline effect for mobile */
+.mobile-menu ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #1a73e8;
+  transition: width 0.3s ease;
+}
+
 .mobile-menu ul li a:hover {
   color: #1a73e8;
+}
+
+.mobile-menu ul li a:hover::after {
+  width: 100%;
 }
 
 /* Mobile Buttons */
@@ -181,7 +215,6 @@
   margin-bottom: 1rem;
 }
 
-
 /* Modal Overlay */
 .modal-overlay {
   position: fixed;
@@ -208,13 +241,11 @@
   animation: scaleIn 0.3s ease;
 }
 
-/* Modal animation */
 @keyframes scaleIn {
   from {
     transform: scale(0.8);
     opacity: 0;
   }
-
   to {
     transform: scale(1);
     opacity: 1;
@@ -265,13 +296,11 @@
   animation: dropdownFade 0.25s ease-in-out;
 }
 
-/* Dropdown fade animation */
 @keyframes dropdownFade {
   from {
     opacity: 0;
     transform: translateY(-10px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -292,14 +321,12 @@
   transition: background 0.2s, color 0.2s;
 }
 
-/* Hover effect */
 .dropdown-item:hover {
   background: #f5f5f5;
   color: #0077ff;
   border-radius: 12px;
 }
 
-/* Logout with special color */
 .dropdown-item.logout {
   color: #d9534f;
   font-weight: bold;
@@ -310,13 +337,11 @@
   color: #c9302c;
 }
 
-/* Divider */
 .dropdown-divider {
   height: 1px;
   background: #eee;
   margin: 4px 0;
 }
-
 
 /* Responsive Tweaks */
 @media (max-width: 900px) {
@@ -326,7 +351,7 @@
   }
   .navbar-links,
   .navbar-buttons {
-    display: none; /* hide desktop nav */
+    display: none;
   }
   .hamburger {
     display: block;

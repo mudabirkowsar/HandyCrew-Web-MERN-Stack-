@@ -38,8 +38,8 @@ function Footer() {
         {/* Contact Info */}
         <div className="footer-section">
           <h3>Contact Us</h3>
-          <p>Email: support@handycrew.com</p>
-          <p>Phone: +1 234 567 890</p>
+          <p>Email: khandaymudabir@gmail.com</p>
+          <p>Phone: +91 6006287541</p>
           <div className="footer-socials">
             <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"/></a>
             <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter"/></a>
