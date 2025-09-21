@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("DB connected "))
     .catch((err) => {
-        console.log("Error in connection", err);
+        console.log("Error in connection", err.message);
         process.exit(1);
     })
 

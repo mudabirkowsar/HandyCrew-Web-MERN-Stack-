@@ -23,6 +23,12 @@ function Sidebar({ activeTab, setActiveTab }) {
         >
           My Services
         </li>
+        {/* <li
+          className={activeTab === "update" ? "active" : ""}
+          onClick={() => setActiveTab("update")}
+        >
+          Update
+        </li> */}
         <li
           className={activeTab === "requests" ? "active" : ""}
           onClick={() => setActiveTab("requests")}

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { getDashboardData } from "../../../api/api";
 import { FaPlus, FaEdit, FaTrash } from "react-icons/fa";
 import "./ServicesScreen.css";
+import { useNavigate } from "react-router-dom"
 
 function ServicesScreen() {
+  const navigate = useNavigate()
   const [provider, setProvider] = useState(null);
   const [service, setService] = useState(null);
 

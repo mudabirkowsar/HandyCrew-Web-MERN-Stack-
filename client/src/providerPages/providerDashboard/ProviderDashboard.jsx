@@ -7,6 +7,7 @@ import SettingsScreen from "./settting/SettingsScreen";
 import ServicesScreen from "./services/ServicesScreen";
 import RequestsScreen from "./requests/RequestsScreen";
 import DashboardScreen from "./dashboard/DashboardScreen"
+import UpdateProvider from "./updateProvider/UpdateProvider";
 
 
 function ProviderDashboard() {
@@ -22,6 +23,7 @@ function ProviderDashboard() {
         {activeTab === "services" && <ServicesScreen />}
         {activeTab === "requests" && <RequestsScreen />}
         {activeTab === "settings" && <SettingsScreen />}
+        {activeTab === "update" && <UpdateProvider/>}
       </main>
     </div>
   );
